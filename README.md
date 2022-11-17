@@ -1,4 +1,4 @@
-# Circuit json serialization for =nil; Foundation's Cryptography Suite
+# Circuit JSON Serialization for =nil; Foundation's Cryptography Suite
 
 ## Building
 
