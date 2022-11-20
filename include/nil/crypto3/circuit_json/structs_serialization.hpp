@@ -36,6 +36,7 @@
 
 #include <nil/crypto3/container/merkle/tree.hpp>
 
+#include <nil/crypto3/circuit_json/detail/type_traits.hpp>
 #include <type_traits>
 
 namespace nil {
@@ -119,7 +120,7 @@ namespace nil {
                     };
                 }
 
-                template<typename AssignType, typename std::enable_if<nil::crypto3::detail::is_plonk_table<AssignType>::value, bool>::type = true>
+                template<typename AssignType, typename std::enable_if<nil::crypto3::circuit_json::detail::is_plonk_table<AssignType>::value, bool>::type = true>
                 void tag_invoke(boost::json::value_from_tag, boost::json::value &jv, AssignType const &c) {
                     jv = {
                             {"_private_table", {"witness_columns", c.private_table().witnesses()}},
@@ -130,7 +131,7 @@ namespace nil {
                     };
                 }
 
-                template<typename PublicPreprocessedData, typename std::enable_if<nil::crypto3::detail::is_public_preprocessed_data_type<PublicPreprocessedData>::value, bool>::type = true>
+                template<typename PublicPreprocessedData, typename std::enable_if<nil::crypto3::circuit_json::detail::is_public_preprocessed_data_type<PublicPreprocessedData>::value, bool>::type = true>
                 void tag_invoke(boost::json::value_from_tag, boost::json::value &jv, PublicPreprocessedData const &c) {
                     jv = {
                             {"public_polynomial_table",
@@ -163,7 +164,7 @@ namespace nil {
                     };
                 }
 
-                template<typename PrivatePreprocessedData, typename std::enable_if<nil::crypto3::detail::is_private_preprocessed_data_type<PrivatePreprocessedData>::value, bool>::type = true>
+                template<typename PrivatePreprocessedData, typename std::enable_if<nil::crypto3::circuit_json::detail::is_private_preprocessed_data_type<PrivatePreprocessedData>::value, bool>::type = true>
                 void tag_invoke(boost::json::value_from_tag, boost::json::value &jv, PrivatePreprocessedData const &c) {
                     jv = {
                             {"basic_domain",             c.basic_domain},
@@ -175,7 +176,7 @@ namespace nil {
             namespace commitments {
 
                 namespace detail {
-                    template<typename ParamsType, typename std::enable_if<nil::crypto3::detail::is_fri_params<ParamsType>::value, bool>::type = true>
+                    template<typename ParamsType, typename std::enable_if<nil::crypto3::circuit_json::detail::is_fri_params<ParamsType>::value, bool>::type = true>
                     void tag_invoke(boost::json::value_from_tag, boost::json::value &jv,
                                     ParamsType const &c) {
                         jv = {

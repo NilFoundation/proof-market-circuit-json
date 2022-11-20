@@ -191,192 +191,192 @@
 
 namespace nil {
     namespace crypto3 {
-        namespace detail {
-            GENERATE_HAS_MEMBER_TYPE(iterator)
-            GENERATE_HAS_MEMBER_TYPE(const_iterator)
+        namespace circuit_json {
+            namespace detail {
+                GENERATE_HAS_MEMBER_TYPE(iterator)
+                GENERATE_HAS_MEMBER_TYPE(const_iterator)
 
-            GENERATE_HAS_MEMBER_TYPE(encoded_value_type)
-            GENERATE_HAS_MEMBER_TYPE(encoded_block_type)
-            GENERATE_HAS_MEMBER_TYPE(decoded_value_type)
-            GENERATE_HAS_MEMBER_TYPE(decoded_block_type)
+                GENERATE_HAS_MEMBER_TYPE(encoded_value_type)
+                GENERATE_HAS_MEMBER_TYPE(encoded_block_type)
+                GENERATE_HAS_MEMBER_TYPE(decoded_value_type)
+                GENERATE_HAS_MEMBER_TYPE(decoded_block_type)
 
-            GENERATE_HAS_MEMBER_TYPE(block_type)
-            GENERATE_HAS_MEMBER_TYPE(digest_type)
-            GENERATE_HAS_MEMBER_TYPE(key_type)
-            GENERATE_HAS_MEMBER_TYPE(key_schedule_type)
-            GENERATE_HAS_MEMBER_TYPE(word_type)
+                GENERATE_HAS_MEMBER_TYPE(block_type)
+                GENERATE_HAS_MEMBER_TYPE(digest_type)
+                GENERATE_HAS_MEMBER_TYPE(key_type)
+                GENERATE_HAS_MEMBER_TYPE(key_schedule_type)
+                GENERATE_HAS_MEMBER_TYPE(word_type)
 
-            GENERATE_HAS_MEMBER_TYPE(r)
-            GENERATE_HAS_MEMBER_TYPE(max_degree)
-            GENERATE_HAS_MEMBER_TYPE(D)
-            GENERATE_HAS_MEMBER_TYPE(step_list)
+                GENERATE_HAS_MEMBER_TYPE(r)
+                GENERATE_HAS_MEMBER_TYPE(max_degree)
+                GENERATE_HAS_MEMBER_TYPE(D)
+                GENERATE_HAS_MEMBER_TYPE(step_list)
 
-            GENERATE_HAS_MEMBER_TYPE(_private_table)
-            GENERATE_HAS_MEMBER_TYPE(_public_table)
+                GENERATE_HAS_MEMBER_TYPE(_private_table)
+                GENERATE_HAS_MEMBER_TYPE(_public_table)
 
-            GENERATE_HAS_MEMBER_TYPE(public_polynomial_table)
-            GENERATE_HAS_MEMBER_TYPE(permutation_polynomials)
-            GENERATE_HAS_MEMBER_TYPE(identity_polynomials)
-            GENERATE_HAS_MEMBER_TYPE(q_last)
-            GENERATE_HAS_MEMBER_TYPE(q_blind)
-            GENERATE_HAS_MEMBER_TYPE(precommitments)
-            GENERATE_HAS_MEMBER_TYPE(common_data)
+                GENERATE_HAS_MEMBER_TYPE(public_polynomial_table)
+                GENERATE_HAS_MEMBER_TYPE(permutation_polynomials)
+                GENERATE_HAS_MEMBER_TYPE(identity_polynomials)
+                GENERATE_HAS_MEMBER_TYPE(q_last)
+                GENERATE_HAS_MEMBER_TYPE(q_blind)
+                GENERATE_HAS_MEMBER_TYPE(precommitments)
+                GENERATE_HAS_MEMBER_TYPE(common_data)
 
-            GENERATE_HAS_MEMBER_TYPE(basic_domain)
-            GENERATE_HAS_MEMBER_TYPE(private_polynomial_table)
+                GENERATE_HAS_MEMBER_TYPE(basic_domain)
+                GENERATE_HAS_MEMBER_TYPE(private_polynomial_table)
 
-            GENERATE_HAS_MEMBER(encoded_value_bits)
-            GENERATE_HAS_MEMBER(encoded_block_bits)
-            GENERATE_HAS_MEMBER(decoded_value_bits)
-            GENERATE_HAS_MEMBER(decoded_block_bits)
+                GENERATE_HAS_MEMBER(encoded_value_bits)
+                GENERATE_HAS_MEMBER(encoded_block_bits)
+                GENERATE_HAS_MEMBER(decoded_value_bits)
+                GENERATE_HAS_MEMBER(decoded_block_bits)
 
-            GENERATE_HAS_MEMBER(block_bits)
-            GENERATE_HAS_MEMBER(digest_bits)
-            GENERATE_HAS_MEMBER(key_bits)
-            GENERATE_HAS_MEMBER(min_key_bits)
-            GENERATE_HAS_MEMBER(max_key_bits)
-            GENERATE_HAS_MEMBER(key_schedule_bits)
-            GENERATE_HAS_MEMBER(word_bits)
+                GENERATE_HAS_MEMBER(block_bits)
+                GENERATE_HAS_MEMBER(digest_bits)
+                GENERATE_HAS_MEMBER(key_bits)
+                GENERATE_HAS_MEMBER(min_key_bits)
+                GENERATE_HAS_MEMBER(max_key_bits)
+                GENERATE_HAS_MEMBER(key_schedule_bits)
+                GENERATE_HAS_MEMBER(word_bits)
 
-            GENERATE_HAS_MEMBER(rounds)
+                GENERATE_HAS_MEMBER(rounds)
 
-            GENERATE_HAS_MEMBER_CONST_RETURN_FUNCTION(begin, const_iterator)
-            GENERATE_HAS_MEMBER_CONST_RETURN_FUNCTION(end, const_iterator)
+                GENERATE_HAS_MEMBER_CONST_RETURN_FUNCTION(begin, const_iterator)
+                GENERATE_HAS_MEMBER_CONST_RETURN_FUNCTION(end, const_iterator)
 
-            GENERATE_HAS_MEMBER_RETURN_FUNCTION(encode, encoded_block_type);
-            GENERATE_HAS_MEMBER_RETURN_FUNCTION(decode, decoded_block_type);
+                GENERATE_HAS_MEMBER_RETURN_FUNCTION(encode, encoded_block_type);
+                GENERATE_HAS_MEMBER_RETURN_FUNCTION(decode, decoded_block_type);
 
-            GENERATE_HAS_MEMBER_RETURN_FUNCTION(encrypt, block_type);
-            GENERATE_HAS_MEMBER_RETURN_FUNCTION(decrypt, block_type);
+                GENERATE_HAS_MEMBER_RETURN_FUNCTION(encrypt, block_type);
+                GENERATE_HAS_MEMBER_RETURN_FUNCTION(decrypt, block_type);
 
-            GENERATE_HAS_MEMBER_FUNCTION(generate)
-            GENERATE_HAS_MEMBER_CONST_FUNCTION(check)
+                GENERATE_HAS_MEMBER_FUNCTION(generate)
+                GENERATE_HAS_MEMBER_CONST_FUNCTION(check)
 
-            template<typename T>
-            struct is_iterator {
-                static char test(...);
+                template<typename T>
+                struct is_iterator {
+                    static char test(...);
 
-                template<typename U, typename = typename std::iterator_traits<U>::difference_type,
-                         typename = typename std::iterator_traits<U>::pointer,
-                         typename = typename std::iterator_traits<U>::reference,
-                         typename = typename std::iterator_traits<U>::value_type,
-                         typename = typename std::iterator_traits<U>::iterator_category>
-                static long test(U &&);
+                    template<typename U, typename = typename std::iterator_traits<U>::difference_type,
+                             typename = typename std::iterator_traits<U>::pointer,
+                             typename = typename std::iterator_traits<U>::reference,
+                             typename = typename std::iterator_traits<U>::value_type,
+                             typename = typename std::iterator_traits<U>::iterator_category>
+                    static long test(U &&);
 
-                constexpr static bool value = std::is_same<decltype(test(std::declval<T>())), long>::value;
-            };
+                    constexpr static bool value = std::is_same<decltype(test(std::declval<T>())), long>::value;
+                };
 
-            template<typename Range>
-            struct is_range {
-                static const bool value = has_iterator<Range>::value && has_begin<Range>::value && has_end<Range>::value;
-            };
+                template<typename Range>
+                struct is_range {
+                    static const bool value =
+                        has_iterator<Range>::value && has_begin<Range>::value && has_end<Range>::value;
+                };
 
-            template<typename Container>
-            struct is_container {
-                static const bool value =
-                    has_iterator<Container>::value && has_begin<Container>::value && has_end<Container>::value &&
-                    has_const_iterator<Container>::value && has_begin<Container>::value && has_end<Container>::value;
-            };
+                template<typename Container>
+                struct is_container {
+                    static const bool value = has_iterator<Container>::value && has_begin<Container>::value &&
+                                              has_end<Container>::value && has_const_iterator<Container>::value &&
+                                              has_begin<Container>::value && has_end<Container>::value;
+                };
 
-            template<typename T>
-            struct is_codec {
-                static const bool value = has_encoded_value_type<T>::value && has_encoded_value_bits<T>::value &&
-                                          has_decoded_value_type<T>::value && has_decoded_value_bits<T>::value &&
-                                          has_encoded_block_type<T>::value && has_encoded_block_bits<T>::value &&
-                                          has_decoded_block_type<T>::value && has_decoded_block_bits<T>::value &&
-                                          has_encode<T>::value && has_decode<T>::value;
-                typedef T type;
-            };
+                template<typename T>
+                struct is_codec {
+                    static const bool value = has_encoded_value_type<T>::value && has_encoded_value_bits<T>::value &&
+                                              has_decoded_value_type<T>::value && has_decoded_value_bits<T>::value &&
+                                              has_encoded_block_type<T>::value && has_encoded_block_bits<T>::value &&
+                                              has_decoded_block_type<T>::value && has_decoded_block_bits<T>::value &&
+                                              has_encode<T>::value && has_decode<T>::value;
+                    typedef T type;
+                };
 
-            template<typename T>
-            struct is_block_cipher {
-                static const bool value =
-                    has_word_type<T>::value && has_word_bits<T>::value &&
-                    has_block_type<T>::value && has_block_bits<T>::value &&
-                    has_key_type<T>::value && has_key_bits<T>::value &&
-                    has_rounds<T>::value && has_encrypt<T>::value && has_decrypt<T>::value;
-                typedef T type;
-            };
+                template<typename T>
+                struct is_block_cipher {
+                    static const bool value = has_word_type<T>::value && has_word_bits<T>::value &&
+                                              has_block_type<T>::value && has_block_bits<T>::value &&
+                                              has_key_type<T>::value && has_key_bits<T>::value &&
+                                              has_rounds<T>::value && has_encrypt<T>::value && has_decrypt<T>::value;
+                    typedef T type;
+                };
 
-            template<typename T>
-            struct is_hash {
-            private:
-                typedef char one;
-                typedef struct {
-                    char array[2];
-                } two;
+                template<typename T>
+                struct is_hash {
+                private:
+                    typedef char one;
+                    typedef struct {
+                        char array[2];
+                    } two;
 
-                template<typename C>
-                static one test_construction_type(typename C::construction::type *);
+                    template<typename C>
+                    static one test_construction_type(typename C::construction::type *);
 
-                template<typename C>
-                static two test_construction_type(...);
+                    template<typename C>
+                    static two test_construction_type(...);
 
-                template<typename C>
-                static one test_construction_params(typename C::construction::params_type *);
+                    template<typename C>
+                    static one test_construction_params(typename C::construction::params_type *);
 
-                template<typename C>
-                static two test_construction_params(...);
+                    template<typename C>
+                    static two test_construction_params(...);
 
-            public:
-                static const bool value = has_digest_type<T>::value && has_digest_bits<T>::value &&
-                                          sizeof(test_construction_type<T>(0)) == sizeof(one) &&
-                                          sizeof(test_construction_params<T>(0)) == sizeof(one);
-                typedef T type;
-            };
+                public:
+                    static const bool value = has_digest_type<T>::value && has_digest_bits<T>::value &&
+                                              sizeof(test_construction_type<T>(0)) == sizeof(one) &&
+                                              sizeof(test_construction_params<T>(0)) == sizeof(one);
+                    typedef T type;
+                };
 
-            template<typename T>
-            struct is_mac {
-                static const bool value =
-                    has_digest_type<T>::value && has_digest_bits<T>::value &&
-                    has_block_type<T>::value && has_block_bits<T>::value &&
-                    has_key_type<T>::value && has_key_bits<T>::value;
-                typedef T type;
-            };
+                template<typename T>
+                struct is_mac {
+                    static const bool value = has_digest_type<T>::value && has_digest_bits<T>::value &&
+                                              has_block_type<T>::value && has_block_bits<T>::value &&
+                                              has_key_type<T>::value && has_key_bits<T>::value;
+                    typedef T type;
+                };
 
-            template<typename T>
-            struct is_kdf {
-                static const bool value =
-                    has_digest_type<T>::value && has_digest_bits<T>::value &&
-                    has_key_type<T>::value && has_max_key_bits<T>::value &&
-                    has_min_key_bits<T>::value;
+                template<typename T>
+                struct is_kdf {
+                    static const bool value = has_digest_type<T>::value && has_digest_bits<T>::value &&
+                                              has_key_type<T>::value && has_max_key_bits<T>::value &&
+                                              has_min_key_bits<T>::value;
 
-                typedef T type;
-            };
+                    typedef T type;
+                };
 
-            template<typename T>
-            struct is_passhash {
-                static const bool value = has_generate<T>::value && has_check<T>::value;
-                typedef T type;
-            };
+                template<typename T>
+                struct is_passhash {
+                    static const bool value = has_generate<T>::value && has_check<T>::value;
+                    typedef T type;
+                };
 
-            template<typename T>
-            struct is_fri_params {
-                static const bool value = has_r<T>::value && has_max_degree<T>::value &&
-                                          has_D<T>::value && has_step_list<T>::value;
-                typedef T type;
-            };
+                template<typename T>
+                struct is_fri_params {
+                    static const bool value =
+                        has_r<T>::value && has_max_degree<T>::value && has_D<T>::value && has_step_list<T>::value;
+                    typedef T type;
+                };
 
-            template<typename T>
-            struct is_plonk_table {
-                static const bool value = has__private_table<T>::value && has__public_table<T>::value;
-                typedef T type;
-            };
+                template<typename T>
+                struct is_plonk_table {
+                    static const bool value = has__private_table<T>::value && has__public_table<T>::value;
+                    typedef T type;
+                };
 
-            template<typename T>
-            struct is_public_preprocessed_data_type {
-                static const bool value = has_public_polynomial_table<T>::value && has_permutation_polynomials<T>::value &&
-                        has_identity_polynomials<T>::value && has_q_last<T>::value &&
-                        has_q_blind<T>::value && has_precommitments<T>::value &&
-                        has_common_data<T>::value;
-                typedef T type;
-            };
+                template<typename T>
+                struct is_public_preprocessed_data_type {
+                    static const bool value =
+                        has_public_polynomial_table<T>::value && has_permutation_polynomials<T>::value &&
+                        has_identity_polynomials<T>::value && has_q_last<T>::value && has_q_blind<T>::value &&
+                        has_precommitments<T>::value && has_common_data<T>::value;
+                    typedef T type;
+                };
 
-            template<typename T>
-            struct is_private_preprocessed_data_type {
-                static const bool value = has_basic_domain<T>::value && has_private_polynomial_table<T>::value;
-                typedef T type;
-            };
+                template<typename T>
+                struct is_private_preprocessed_data_type {
+                    static const bool value = has_basic_domain<T>::value && has_private_polynomial_table<T>::value;
+                    typedef T type;
+                };
+            }
         }    // namespace detail
     }        // namespace crypto3
 }    // namespace nil
