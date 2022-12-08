@@ -226,6 +226,13 @@ namespace nil {
                 GENERATE_HAS_MEMBER_TYPE(basic_domain)
                 GENERATE_HAS_MEMBER_TYPE(private_polynomial_table)
 
+                GENERATE_HAS_MEMBER_TYPE(Z)
+                GENERATE_HAS_MEMBER_TYPE(lagrange_0)
+                GENERATE_HAS_MEMBER_TYPE(commitments)
+                GENERATE_HAS_MEMBER_TYPE(columns_rotations)
+                GENERATE_HAS_MEMBER_TYPE(rows_amount)
+                GENERATE_HAS_MEMBER_TYPE(usable_rows_amount)
+
                 GENERATE_HAS_MEMBER(encoded_value_bits)
                 GENERATE_HAS_MEMBER(encoded_block_bits)
                 GENERATE_HAS_MEMBER(decoded_value_bits)
@@ -374,6 +381,14 @@ namespace nil {
                 template<typename T>
                 struct is_private_preprocessed_data_type {
                     static const bool value = has_basic_domain<T>::value && has_private_polynomial_table<T>::value;
+                    typedef T type;
+                };
+
+                template<typename T>
+                struct is_common_data {
+                    static const bool value = has_Z<T>::value && has_lagrange_0<T>::value &&
+                            has_commitments<T>::value && has_columns_rotations<T>::value &&
+                            has_rows_amount<T>::value && has_usable_rows_amount<T>::value;
                     typedef T type;
                 };
             }

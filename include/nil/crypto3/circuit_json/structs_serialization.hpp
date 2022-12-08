@@ -143,24 +143,29 @@ namespace nil {
                             {"identity_polynomials",    c.identity_polynomials},
                             {"q_last",                  c.q_last},
                             {"q_blind",                 c.q_blind},
-                            {"precommitments",          {{"id_permutation",       c.precommitments.id_permutation},
-                                                                {"sigma_permutation", c.precommitments.sigma_permutation},
-                                                                {"public_input",     c.precommitments.public_input},
-                                                                {"constant",    c.precommitments.constant},
-                                                                {"selector",          c.precommitments.selector},
-                                                                {"special_selectors", c.precommitments.special_selectors}}},
+                            {"precommitments",          {{"fixed_values",       c.precommitments.fixed_values}}},
                             {"common_data",             {{"basic_domain",         c.common_data.basic_domain},
                                                                 {"Z",                 c.common_data.Z},
                                                                 {"lagrange_0",       c.common_data.lagrange_0},
-                                                                {"commitments", {{"id_permutation", c.common_data.commitments.id_permutation},
-                                                                                        {"sigma_permutation", c.common_data.commitments.sigma_permutation},
-                                                                                        {"public_input", c.common_data.commitments.public_input},
-                                                                                        {"constant", c.common_data.commitments.constant},
-                                                                                        {"selector", c.common_data.commitments.selector},
-                                                                                        {"special_selectors", c.common_data.commitments.special_selectors}}},
+                                                                {"commitments", {"fixed_values", c.commitments.fixed_values}},
                                                                 {"columns_rotations", c.common_data.columns_rotations},
                                                                 {"rows_amount",       c.common_data.rows_amount}}
                             }
+                    };
+                }
+
+                template<typename CommonData, typename std::enable_if<nil::crypto3::circuit_json::detail::is_common_data<CommonData>::value, bool>::type = true>
+                void tag_invoke(boost::json::value_from_tag, boost::json::value &jv, CommonData const &c) {
+                    jv = {
+                        {"common_data",
+                        {
+                            {"basic_domain", c.basic_domain}, 
+                            {"lagrange_0", c.lagrange_0},
+                            {"commitments", {"fixed_values", c.commitments.fixed_values}},
+                            {"columns_rotations", c.columns_rotations},
+                            {"rows_amount",       c.rows_amount}
+                        }
+                        }
                     };
                 }
 
